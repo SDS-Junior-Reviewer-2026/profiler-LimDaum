@@ -26,7 +26,7 @@ public class Profiler {
     }
 
     void showResult() {
-        System.out.print("정렬결과: " );
+        System.out.print("정렬결과: ");
         System.out.println(arr);
         System.out.printf("swap 횟수: %d\n", sortServiceLib.getChangeCnt());
     }

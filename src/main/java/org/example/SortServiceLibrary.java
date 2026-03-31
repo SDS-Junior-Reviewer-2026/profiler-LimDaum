@@ -1,27 +1,21 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
-interface SortServiceLib {
+interface SortServiceLibInterface {
     public void sort(ArrayList<Integer> arr);
     public int getChangeCnt();
 }
 
-//abstract class SortServiceLib implements SortServiceLibrary {
-//    private int changeCnt = 0;
-//    public void addChangeCnt() {
-//        changeCnt++;
-//    }
-//    public int getChangeCnt() {
-//        return changeCnt;
-//    }
-//}
+abstract class SortServiceLib implements SortServiceLibInterface {
+    protected int changeCnt = 0;
+    public int getChangeCnt() {
+        return changeCnt;
+    }
+}
 
-class SelectionSort implements SortServiceLib {
-    private int changeCnt = 0;
-
+class SelectionSort extends SortServiceLib {
     public void sort(ArrayList<Integer> arr) {
         int minIdx;
         for (int i = 0; i < arr.size()-1; i++) {
@@ -37,15 +31,9 @@ class SelectionSort implements SortServiceLib {
             }
         }
     }
-
-    public int getChangeCnt() {
-        return changeCnt;
-    }
 }
 
-class BubbleSort implements SortServiceLib {
-    private int changeCnt = 0;
-
+class BubbleSort extends SortServiceLib {
     public void sort(ArrayList<Integer> arr) {
         for (int i = 0; i < arr.size(); i++) {
             int tmpChangeCnt = changeCnt;
@@ -59,9 +47,5 @@ class BubbleSort implements SortServiceLib {
                 break;
             }
         }
-    }
-
-    public int getChangeCnt() {
-        return changeCnt;
     }
 }
